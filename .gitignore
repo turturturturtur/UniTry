@@ -1,0 +1,14 @@
+# Node / JS
+node_modules
+.next
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Python
+__pycache__/
+.venv/
+.pytest_cache/
+
+# macOS
+.DS_Store

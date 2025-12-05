@@ -1,0 +1,12 @@
+{
+  "name": "uni-try-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "frontend:dev": "cd frontend && next dev",
+    "frontend:build": "cd frontend && next build",
+    "frontend:start": "cd frontend && next start",
+    "backend:dev": "cd backend && uvicorn app.main:app --reload",
+    "backend:test": "cd backend && pytest"
+  }
+}
