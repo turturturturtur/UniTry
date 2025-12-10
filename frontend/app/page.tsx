@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 
 const featureCards = [
@@ -72,52 +69,6 @@ function RoadmapCard({
   );
 }
 
-function UploadForm() {
-  const [status, setStatus] = useState<"idle" | "uploading">("idle");
-
-  return (
-    <form
-      className="glass-panel flex flex-col gap-4 p-6"
-      onSubmit={(event) => {
-        event.preventDefault();
-        setStatus("uploading");
-        setTimeout(() => setStatus("idle"), 1200);
-      }}
-    >
-      <div>
-        <label className="text-sm text-slate-300">模特照片</label>
-        <input
-          type="file"
-          accept="image/*"
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-sm text-white file:mr-3 file:rounded-xl file:border-none file:bg-brand file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
-        />
-      </div>
-      <div>
-        <label className="text-sm text-slate-300">服装单品</label>
-        <input
-          type="file"
-          accept="image/*"
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-sm text-white file:mr-3 file:rounded-xl file:border-none file:bg-brand file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
-        />
-      </div>
-      <div>
-        <label className="text-sm text-slate-300">风格提示</label>
-        <input
-          type="text"
-          placeholder="如：简约、轻户外、秋冬场景"
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-sm text-white placeholder:text-slate-500"
-        />
-      </div>
-      <button
-        type="submit"
-        className="mt-2 flex items-center justify-center rounded-2xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand/90"
-      >
-        {status === "idle" ? "生成换装预览" : "处理中..."}
-      </button>
-    </form>
-  );
-}
-
 export default function Home() {
   return (
     <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-16 px-6 py-12 md:gap-24 md:py-20">
@@ -134,7 +85,7 @@ export default function Home() {
         </p>
         <div className="flex flex-col items-center justify-center gap-3 md:flex-row">
           <Link
-            href="#prototype"
+            href="/prototype"
             className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
           >
             体验原型
@@ -147,47 +98,6 @@ export default function Home() {
           </Link>
         </div>
       </header>
-
-      <section id="prototype" className="grid gap-8 md:grid-cols-2">
-        <div className="glass-panel p-6 md:p-10">
-          <p className="text-xs uppercase tracking-[0.3em] text-white/70">
-            Live Prototype
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold text-white">
-            Upload · Compose · Preview
-          </h2>
-          <p className="mt-2 text-sm text-slate-300">
-            以下为演示交互，未来可以连接至 diffusion 服务或第三方
-            API，实现真实推理流程。
-          </p>
-          <UploadForm />
-        </div>
-        <div className="glass-panel flex flex-col gap-4 p-6">
-          <p className="text-xs uppercase tracking-[0.3em] text-white/70">
-            Output Preview
-          </p>
-          <div className="grid flex-1 grid-cols-2 gap-3">
-            {["原图", "换装", "细节", "风格"].map((label) => (
-              <div
-                key={label}
-                className="flex flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-transparent p-4 text-sm text-slate-200"
-              >
-                <div className="text-xs uppercase tracking-[0.3em] text-white/60">
-                  {label}
-                </div>
-                <div className="mt-auto text-2xl font-semibold text-white">
-                  4K
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-300">
-            接口：<span className="font-mono text-white">POST /api/try-on</span>
-            <p>预计耗时：8-12s （A100 40G）</p>
-          </div>
-        </div>
-      </section>
-
       <section className="grid gap-6 md:grid-cols-3">
         {featureCards.map((card) => (
           <FeatureCard key={card.title} {...card} />
