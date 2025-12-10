@@ -25,3 +25,15 @@ uvicorn app.main:app --reload
 cd backend
 pytest
 ```
+
+# Diffusion model api interface
+Working on. 代码文件在 `model/` 中, 目前文生图能正常使用, 图生图效果很差.
+- model/liblib.py: 使用 [LiblibAI](https://www.liblib.art/), 创建 .env 文件, 写入
+```sh
+ACCESS_KEY=xxx
+SECRET_KEY=xxx # 从liblib获取
+```
+试运行
+```py
+python model/liblib.py -m text
+```

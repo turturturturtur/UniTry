@@ -9,6 +9,7 @@ pnpm-lock.yaml
 __pycache__/
 .venv/
 .pytest_cache/
+backend/.env
 
 # macOS
 .DS_Store
