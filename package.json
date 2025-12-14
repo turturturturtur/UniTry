@@ -8,5 +8,9 @@
     "frontend:start": "cd frontend && next start",
     "backend:dev": "cd backend && uvicorn app.main:app --reload",
     "backend:test": "cd backend && pytest"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.27",
+    "typescript": "^5.9.3"
   }
 }
