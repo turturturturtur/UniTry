@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { LabelTag } from "./LabelTag";
+import { withBasePath } from "@/lib/basePath";
 
 interface ClothingRecommendationProps {
   gender: 'man' | 'woman' | null;
@@ -16,16 +17,16 @@ interface LabelData {
 const outfitData = {
   man: {
     categories: [
-      { label: "帽子", image: "/assets/outfits_man/hat1.jpg" },
-      { label: "上衣", image: "/assets/outfits_man/cloth1.jpg" },
-      { label: "裤子", image: "/assets/outfits_man/pants1.jpg" },
+      { label: "帽子", image: withBasePath("/assets/outfits_man/hat1.jpg") },
+      { label: "上衣", image: withBasePath("/assets/outfits_man/cloth1.jpg") },
+      { label: "裤子", image: withBasePath("/assets/outfits_man/pants1.jpg") },
     ],
   },
   woman: {
     categories: [
-      { label: "帽子", image: "/assets/outfits_woman/hat2.jpg" },
-      { label: "上衣", image: "/assets/outfits_woman/cloth2.jpg" },
-      { label: "下装", image: "/assets/outfits_woman/sp2.jpg" },
+      { label: "帽子", image: withBasePath("/assets/outfits_woman/hat2.jpg") },
+      { label: "上衣", image: withBasePath("/assets/outfits_woman/cloth2.jpg") },
+      { label: "下装", image: withBasePath("/assets/outfits_woman/sp2.jpg") },
     ],
   },
 };
@@ -39,7 +40,9 @@ export function ClothingRecommendation({ gender }: ClothingRecommendationProps) 
     const loadLabelData = async () => {
       if (gender) {
         try {
-          const response = await fetch(`/assets/outfits_${gender}/label.json`);
+          const response = await fetch(
+            withBasePath(`/assets/outfits_${gender}/label.json`)
+          );
           if (response.ok) {
             const labelData = await response.json();
             setOutfitLabels(labelData);

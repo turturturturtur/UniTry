@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { withBasePath } from "@/lib/basePath";
 import { LabelTag } from "./LabelTag";
 
 interface OutfitData {
@@ -34,7 +35,9 @@ export function OutfitChosen({ gender }: OutfitChosenProps) {
       if (gender) {
         try {
           // 由于 Next.js 的文件结构，我们需要使用 fetch 来获取 JSON 文件
-          const response = await fetch(`/assets/outfits_${gender}/label.json`);
+          const response = await fetch(
+            withBasePath(`/assets/outfits_${gender}/label.json`)
+          );
           if (response.ok) {
             const labelData = await response.json();
             setOutfitLabels(labelData);
@@ -80,7 +83,7 @@ export function OutfitChosen({ gender }: OutfitChosenProps) {
               onClick={() => setShowModal(true)}
             >
               <Image
-                src={outfit.image}
+                src={withBasePath(outfit.image)}
                 alt={outfit.label}
                 width={400}
                 height={400}
@@ -109,7 +112,7 @@ export function OutfitChosen({ gender }: OutfitChosenProps) {
             </div>
             <div className="relative">
               <Image
-                src={outfit.image}
+                src={withBasePath(outfit.image)}
                 alt={outfit.label}
                 width={800}
                 height={800}

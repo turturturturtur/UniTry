@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 interface FinalLookProps {
   gender: 'man' | 'woman' | null;
@@ -10,11 +11,11 @@ interface FinalLookProps {
 // 最终效果图映射
 const finalLookData = {
   man: {
-    image: "/assets/outfits_man/look1-all.jpg",
+    image: withBasePath("/assets/outfits_man/look1-all.jpg"),
     label: "男装效果",
   },
   woman: {
-    image: "/assets/outfits_woman/look2-all.jpg",
+    image: withBasePath("/assets/outfits_woman/look2-all.jpg"),
     label: "女装效果",
   },
 };
