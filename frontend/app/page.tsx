@@ -85,6 +85,12 @@ export default function Home() {
         </p>
         <div className="flex flex-col items-center justify-center gap-3 md:flex-row">
           <Link
+            href="/demo"
+            className="rounded-full border border-white/30 px-6 py-3 text-sm text-white transition hover:border-white/60"
+          >
+            样例展示
+          </Link>
+          <Link
             href="/prototype"
             className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
           >
