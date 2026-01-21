@@ -63,11 +63,7 @@ export function ClothingRecommendation({ gender }: ClothingRecommendationProps) 
           Outfit Recommendation
         </p>
         <h2 className="text-2xl font-semibold text-white">智能服饰推荐</h2>
-        <p className="text-sm text-slate-300">
-          {gender
-            ? "基于上传的图片，为您推荐相关服饰搭配。点击图片可放大查看。"
-            : "请上传包含look1或look2的图片以查看推荐。"}
-        </p>
+
         <div className="mt-4 space-y-4">
           {gender ? (
             categories.map((category) => {

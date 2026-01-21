@@ -106,7 +106,7 @@ export function LiveCameraPreview({ onGenderDetected }: LiveCameraPreviewProps) 
         </div>
         <div className="space-y-3">
           <p className="text-xs text-slate-300">
-            允许浏览器访问摄像头即可获得实时预览，或上传一张静态图片进行占位展示。点击图片可放大查看。
+            允许浏览器访问摄像头即可获得实时预览。
           </p>
           <div className="space-y-2">
             <label

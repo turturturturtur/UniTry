@@ -31,11 +31,7 @@ export function FinalLook({ gender }: FinalLookProps) {
           Final Look
         </p>
         <h2 className="text-2xl font-semibold text-white">最终效果</h2>
-        <p className="text-sm text-slate-300">
-          {gender
-            ? "穿着推荐服装的最终效果。点击图片可放大查看。"
-            : "等待上传图片以显示最终效果。"}
-        </p>
+
         <div className="mt-4">
           {finalLook ? (
             <div

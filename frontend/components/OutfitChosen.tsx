@@ -71,11 +71,7 @@ export function OutfitChosen({ gender }: OutfitChosenProps) {
           })()}
         </div>
         <h2 className="text-2xl font-semibold text-white">用户选择</h2>
-        <p className="text-sm text-slate-300">
-          {gender
-            ? "您选择的服装单品。点击图片可放大查看。"
-            : "等待上传图片以显示对应的服装选择。"}
-        </p>
+
         <div className="mt-4">
           {outfit ? (
             <div
